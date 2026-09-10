@@ -21,7 +21,7 @@
   box-sizing: border-box;
 }
 
-.page a {
+.page :where(a) {
   color: inherit;
 }
 
