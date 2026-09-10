@@ -142,6 +142,21 @@ const groups: FieldGroup[] = [
 
 const allFields = groups.flatMap((group) => group.fields);
 
+function formatKstTimestamp(date: Date): string {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")} ${get("hour")}:${get("minute")}:${get("second")}`;
+}
+
 const SUCCESS_TEXT =
   "제출이 완료되었습니다. 담당 전문가가 영업일 기준 2~3일 내 입력하신 연락처로 안내드립니다.";
 const ERROR_TEXT =
@@ -186,7 +201,7 @@ export default function ValuationForm() {
     }
 
     const payload: Record<string, string> = {
-      timestamp: new Date().toISOString(),
+      timestamp: formatKstTimestamp(new Date()),
     };
     for (const field of allFields) {
       payload[field.name] = String(data.get(field.name) ?? "").trim();
