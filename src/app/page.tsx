@@ -14,7 +14,7 @@ export default function Home() {
       <header>
         <div className={`${styles.wrap} ${styles.headerInner}`}>
           <div className={styles.brand}>
-            한결회계법인<span>·</span>가업승계센터
+            스타리치어드바이저<span>·</span>가업승계센터
           </div>
           <a href="#apply" className={styles.headerCta}>
             무료 진단 신청
@@ -164,7 +164,7 @@ export default function Home() {
 
       <footer>
         <div className={`${styles.wrap} ${styles.footerInner}`}>
-          <span>ⓒ 한결회계법인 가업승계센터. 본 페이지는 상담 신청 목적의 예시 페이지입니다.</span>
+          <span>ⓒ 스타리치어드바이저 가업승계센터. 본 페이지는 상담 신청 목적의 예시 페이지입니다.</span>
           <span>개인정보 처리방침 · 상담문의 02-000-0000</span>
         </div>
       </footer>
